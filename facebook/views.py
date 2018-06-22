@@ -21,3 +21,6 @@ def play2(request):
     diary = ['오늘은 날씨가 맑았다. - 4월 3일', '미세머지가 너무 심하다. (4월 2일)', '비가 온다. 4월 1일에 작성']
 
     return render(request, 'play2.html', { 'name': choidogeun, 'diary': diary, 'cnt': count, 'age': status })
+
+def my_profile(request):
+    return render(request, 'profile.html')
