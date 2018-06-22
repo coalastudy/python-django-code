@@ -18,4 +18,6 @@ def play2(request):
     else: # 성인이 아닌 경우
         status = '청소년'
 
-    return render(request, 'play2.html', { 'name': choidogeun, 'cnt': count, 'age': status })
+    diary = ['오늘은 날씨가 맑았다. - 4월 3일', '미세머지가 너무 심하다. (4월 2일)', '비가 온다. 4월 1일에 작성']
+
+    return render(request, 'play2.html', { 'name': choidogeun, 'diary': diary, 'cnt': count, 'age': status })
