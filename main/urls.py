@@ -20,6 +20,7 @@ from facebook.views import play
 from facebook.views import play2
 from facebook.views import my_profile
 from facebook.views import event
+from facebook.views import fail, help, warn
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,7 @@ urlpatterns = [
     path('play2/', play2),
     path('dogeunchoi/profile/', my_profile),
     path('event/', event),
+    path('fail/', fail),
+    path('help/', help),
+    path('warn/', warn),
 ]

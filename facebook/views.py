@@ -43,3 +43,12 @@ def event(request):
         lottery = '꽝...'
 
     return render(request, 'event.html', { 'name': choidogeun, 'cnt': count, 'age': status, 'lottery': lottery })
+
+def fail(request):
+    return render(request, 'fail.html')
+
+def help(request):
+    return render(request, 'help.html')
+
+def warn(request):
+    return render(request, 'warn.html')
