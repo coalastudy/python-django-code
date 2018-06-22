@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 from facebook.views import play
+from facebook.views import play2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('play/', play)
+    path('play/', play),
+    path('play2/', play2)
 ]
