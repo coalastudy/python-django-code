@@ -19,11 +19,13 @@ from django.urls import path
 from facebook.views import play
 from facebook.views import play2
 from facebook.views import my_profile
+from facebook.views import event
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('play/', play),
     path('play2/', play2),
-    path('dogeunchoi/profile/', my_profile)
+    path('dogeunchoi/profile/', my_profile),
+    path('event/', event),
 ]
