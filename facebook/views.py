@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from facebook.models import Article
+from facebook.models import Page
 # Create your views here.
 
 def play(request):
@@ -62,3 +63,7 @@ def newsfeed(request):
 def detail_feed(request, pk):
     article = Article.objects.get(pk=pk)
     return render(request, 'detail_feed.html', {'feed': article})
+
+def pages(request):
+    pages = Page.objects.all()
+    return render(request, 'page_list.html', {'pages': pages })
