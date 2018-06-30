@@ -71,10 +71,13 @@ def pages(request):
 def new_feed(request):
     if request.method == 'POST': # 폼이 전송되었을 때만 아래 코드를 실행
         if request.POST['author'] != '' and request.POST['title'] != '' and request.POST['content'] != '' and request.POST['password'] != '':
+            text = request.POST['content']
+            text = text + ' - 추신: 감사합니다.'
+
             new_article = Article.objects.create(
                 author=request.POST['author'],
                 title=request.POST['title'],
-                text=request.POST['content'],
+                text=text,
                 password=request.POST['password']
             )
 
