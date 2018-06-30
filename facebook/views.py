@@ -67,3 +67,6 @@ def detail_feed(request, pk):
 def pages(request):
     pages = Page.objects.all()
     return render(request, 'page_list.html', {'pages': pages })
+
+def new_feed(request):
+    return render(request, 'new_feed.html')
