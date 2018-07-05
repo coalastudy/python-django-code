@@ -82,6 +82,28 @@ def new_page(request):
 
     return render(request, 'new_page.html')
 
+def remove_page(request, pk):
+    page = Page.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        page.delete()
+        return redirect('/pages/')
+
+    return render(request, 'remove_page.html', {'page': page})
+
+def edit_page(request, pk):
+    page = Page.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        page.master = request.POST['master']
+        page.name = request.POST['name']
+        page.text = request.POST['text']
+        page.category = request.POST['category']
+        page.save()
+        return redirect('/pages/')
+
+    return render(request, 'edit_page.html', {'page': page })
+
 def new_feed(request):
     if request.method == 'POST': # 폼이 전송되었을 때만 아래 코드를 실행
         if request.POST['author'] != '' and request.POST['title'] != '' and request.POST['content'] != '' and request.POST['password'] != '':
