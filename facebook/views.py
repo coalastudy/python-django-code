@@ -100,10 +100,11 @@ def edit_feed(request, pk):
     article = Article.objects.get(pk=pk)
 
     if request.method == 'POST':
-        article.author = request.POST['author']
-        article.title = request.POST['title']
-        article.text = request.POST['content']
-        article.save()
-        return redirect(f'/feed/{ article.pk }')
+        if request.POST['password'] == article.password:
+            article.author = request.POST['author']
+            article.title = request.POST['title']
+            article.text = request.POST['content']
+            article.save()
+            return redirect(f'/feed/{ article.pk }')
 
     return render(request, 'edit_feed.html', {'feed': article})
