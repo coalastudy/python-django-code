@@ -26,6 +26,7 @@ from facebook.views import detail_feed
 from facebook.views import pages
 from facebook.views import new_feed
 from facebook.views import remove_feed, edit_feed
+from facebook.views import new_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,7 +43,8 @@ urlpatterns = [
     path('feed/<pk>/', detail_feed),
     path('feed/<pk>/remove/', remove_feed),
     path('feed/<pk>/edit/', edit_feed),
+    path('new/', new_feed),
 
     path('pages/', pages),
-    path('new/', new_feed)
+    path('pages/new/', new_page),
 ]

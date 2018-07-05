@@ -68,6 +68,20 @@ def pages(request):
     pages = Page.objects.all()
     return render(request, 'page_list.html', {'pages': pages })
 
+def new_page(request):
+    if request.method == 'POST': # 폼이 전송되었을 때만 아래 코드를 실행
+        new_page = Page.objects.create(
+            master=request.POST['master'],
+            name=request.POST['name'],
+            text=request.POST['text'],
+            category=request.POST['category']
+        )
+
+        # 새 페이지 개설 완료
+        return redirect('/pages/')
+
+    return render(request, 'new_page.html')
+
 def new_feed(request):
     if request.method == 'POST': # 폼이 전송되었을 때만 아래 코드를 실행
         if request.POST['author'] != '' and request.POST['title'] != '' and request.POST['content'] != '' and request.POST['password'] != '':
