@@ -94,6 +94,9 @@ def remove_feed(request, pk):
             article.delete()
             return redirect('/') # 첫페이지로 이동하기
 
+        else:
+            return redirect('/fail/')  # 비밀번호 오류 페이지 이동하기
+
     return render(request, 'remove_feed.html', {'feed': article})
 
 def edit_feed(request, pk):
@@ -106,5 +109,7 @@ def edit_feed(request, pk):
             article.text = request.POST['content']
             article.save()
             return redirect(f'/feed/{ article.pk }')
+        else:
+            return redirect('/fail/')  # 비밀번호 오류 페이지 이동하기
 
     return render(request, 'edit_feed.html', {'feed': article})
