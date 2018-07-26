@@ -190,13 +190,13 @@
         {% endfor %}
 
         <div class="form-wrapper">
-            <span class="help">Comments</span>
+            <span class="help">댓글</span>
             <form action="" method="POST">
                 {% csrf_token %}
-                <input type="text" name="author" placeholder="이름" /><br/>
-                <input type="password" name="password" placeholder="비밀번호" /><br/>
-                <textarea name="text" placeholder="코멘트 내용"></textarea>
-                <button type="submit">등록</button>
+                <input type="text" name="nickname" placeholder="닉네임" /><br/>
+                <input type="password" name="password" placeholder="패스워드" /><br/>
+                <textarea name="reply" placeholder="댓글 내용"></textarea>
+                <button type="submit">댓글 작성</button>
             </form>
         </div>
     </div>

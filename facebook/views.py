@@ -67,8 +67,8 @@ def detail_feed(request, pk):
     if request.method == 'POST':  # new comment
         Comment.objects.create(
             article=article,
-            author=request.POST['author'],
-            text=request.POST['text'],
+            author=request.POST['nickname'],
+            text=request.POST['reply'],
             password=request.POST['password']
         )
 
