@@ -161,3 +161,16 @@ def edit_feed(request, pk):
             return redirect('/fail/')  # 비밀번호 오류 페이지 이동하기
 
     return render(request, 'edit_feed.html', {'feed': article})
+
+def remove_comment(request, pk):
+    comment = Comment.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        if request.POST['password'] == comment.password:
+            comment.delete()
+            return redirect(f'/feed/{ comment.article.pk }') # 첫페이지로 이동하기
+
+        else:
+            return redirect('/fail/')  # 비밀번호 오류 페이지 이동하기
+
+    return render(request, 'remove_comment.html', {'comment': comment})
