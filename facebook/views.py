@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 from facebook.models import Article
 from facebook.models import Page
+from facebook.models import Comment
 # Create your views here.
 
 def play(request):
@@ -62,6 +63,17 @@ def newsfeed(request):
 
 def detail_feed(request, pk):
     article = Article.objects.get(pk=pk)
+
+    if request.method == 'POST':  # new comment
+        Comment.objects.create(
+            article=article,
+            author=request.POST['author'],
+            text=request.POST['text'],
+            password=request.POST['password']
+        )
+
+        return redirect(f'/feed/{ article.pk }')
+
     return render(request, 'detail_feed.html', {'feed': article})
 
 def pages(request):
